@@ -16,7 +16,7 @@ yield call(getState)
 function* getCardsEffect() {
     try {
       yield call(getCardsRequest)
-      const { cards } = yield call(getCards);
+      const  cards  = yield call(getCards);
       yield put(getCardsSuccess(cards));
     } catch (e) {
       console.error(e);

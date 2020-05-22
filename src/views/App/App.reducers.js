@@ -7,16 +7,17 @@ const initialState = {
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case constants.GET_CARDS_REQUEST:
+      if (!!state.cardList) return {...state};
       return {
         ...state,
         loading: true,
       };
     case constants.GET_CARDS_SUCCESS:
-        console.log(payload)
+        let newList = [...state.cardList, payload]
       return {
         ...state,
         loading: false,
-        cardList: payload,
+        cardList: newList
       };
     case constants.GET_CARDS_FAIL:
       return {

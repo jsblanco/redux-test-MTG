@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'https://api.magicthegathering.io/v1/cards';
+const baseUrl = "https://api.scryfall.com/cards/random"//'https://api.magicthegathering.io/v1/cards';
 
 const axiosInstance = axios.create({
   baseURL: baseUrl
