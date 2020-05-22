@@ -25,6 +25,11 @@ export default (state = initialState, { type, payload }) => {
         loading: false,
         error: payload,
       };
+    case constants.CLEAR_CARD_LIST:
+      return{
+        ...state,
+        cardList: []
+      }
       default:
         return state;
     }
