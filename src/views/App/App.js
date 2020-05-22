@@ -8,7 +8,9 @@ import { getCardsRequest, clearCardList } from "./App.actions";
 const App = () => {
   const dispatch = useDispatch();
   const { cardList, loading } = useSelector((state) => state);
-  const getCardList = () => dispatch(getCardsRequest());
+  const getCardList = () => {
+    dispatch(getCardsRequest())
+  };
   const clearFetchedCards = () => dispatch(clearCardList());
 
 
@@ -20,19 +22,27 @@ const App = () => {
 
       <Button variant="primary"  onClick={getCardList}>
         {" "}
-        Fetch cards
+        Fetch a random card
       </Button>
       <Button variant="danger"  onClick={clearFetchedCards}>
         {" "}
         Clear fetched card
       </Button>
 </div>
-      <Row className="mx-4 my-2">
+      <Row className="mx-4 my-2 d-flex justify-content-center">
     {!!loading && <div>Fetching a random card</div>}
-    {cardList && cardList.map((card) => <Card card={card} />)}
+    {cardList && cardList.map((card, index) => <Card key={index} card={card} />)}
       </Row>
     </div>
   );
 };
 
 export default App;
+
+
+/*
+Para hacer un menú de búsqueda avanzado deslizante:
+
+https://github.com/prometheusresearch-archive/react-forms/issues/26
+
+*/

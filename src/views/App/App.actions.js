@@ -17,3 +17,8 @@ export const getCardsFail = (payload) => ({
 export const clearCardList = () => ({
   type: constants.CLEAR_CARD_LIST,
 });
+
+export const removeFetchedCard = (payload) => ({
+  type: constants.REMOVE_FETCHED_CARD,
+  payload
+});

@@ -7,17 +7,17 @@ const initialState = {
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case constants.GET_CARDS_REQUEST:
-      if (!!state.cardList) return {...state};
+      if (!!state.cardList) return { ...state };
       return {
         ...state,
         loading: true,
       };
     case constants.GET_CARDS_SUCCESS:
-        let newList = [...state.cardList, payload]
+      let newList = [...state.cardList, payload];
       return {
         ...state,
         loading: false,
-        cardList: newList
+        cardList: newList,
       };
     case constants.GET_CARDS_FAIL:
       return {
@@ -26,12 +26,17 @@ export default (state = initialState, { type, payload }) => {
         error: payload,
       };
     case constants.CLEAR_CARD_LIST:
-      return{
+      return {
         ...state,
-        cardList: []
-      }
-      default:
-        return state;
-    }
-  };
-  
+        cardList: [],
+      };
+    case constants.REMOVE_FETCHED_CARD:
+    let newCardList = state.cardList.filter((card) => card !== payload)
+    return {
+        ...state,
+        cardList: newCardList,
+      };
+    default:
+      return state;
+  }
+};

@@ -7,12 +7,6 @@ import {
   getCardsFail,
 } from "./App.actions";
 
-
-
-function* getState() {
-yield call(getState)
-}
-
 function* getCardsEffect() {
     try {
       yield call(getCardsRequest)
