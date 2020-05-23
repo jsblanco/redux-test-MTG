@@ -1,7 +1,9 @@
 import * as constants from "./App.constants";
 const initialState = {
   cardList: [],
+  selectedCards: [],
   loading: false,
+  error: "",
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -31,11 +33,23 @@ export default (state = initialState, { type, payload }) => {
         cardList: [],
       };
     case constants.REMOVE_FETCHED_CARD:
-    let newCardList = state.cardList.filter((card) => card !== payload)
-    return {
+      return {
         ...state,
-        cardList: newCardList,
+        cardList: state.cardList.filter((card) => card !== payload),
       };
+    case constants.SELECT_CARD:
+      return {
+        ...state,
+        cardList: state.cardList.filter((card) => card !== payload),
+        selectedCards: [...state.selectedCards, payload],
+      };
+    case constants.UNSELECT_CARD:
+      return {
+        ...state,
+        cardList: [...state.cardList, payload],
+        selectedCards: state.selectedCards.filter((card) => card !== payload),
+      };
+
     default:
       return state;
   }

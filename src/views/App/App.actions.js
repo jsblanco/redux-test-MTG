@@ -22,3 +22,18 @@ export const removeFetchedCard = (payload) => ({
   type: constants.REMOVE_FETCHED_CARD,
   payload
 });
+
+
+export const selectCard = (payload) => ({
+  type: constants.SELECT_CARD,
+  payload
+});
+
+
+export const unselectCard = (payload) => ({
+  type: constants.UNSELECT_CARD,
+  payload
+});
+
+
+

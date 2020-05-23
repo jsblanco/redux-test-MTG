@@ -1,7 +1,7 @@
 .mtg-card{
     position: relative;
-    height: 310px!important;
-    width: 223px!important;
+    height: 280px!important;
+    width: 201!important;
 }
 
 .mtg-card img{
@@ -37,4 +37,8 @@ max-height: 100%;
     right: -5%;
     background: white;
     border-radius: 50%;
+}
+
+.close-button:hover{
+color: tomato!important
 }
