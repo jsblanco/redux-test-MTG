@@ -14,6 +14,7 @@ export default function Card({ card, selected }) {
   const removeCardFromResults = () => dispatch(removeFetchedCard(card));
   const addCardToSelectedList = () => dispatch(selectCard(card));
   const removeCardFromSelectedList = () => dispatch(unselectCard(card));
+console.log(card);
 
   return (
     <span className="d-inline m-2 mtg-card">
@@ -25,7 +26,7 @@ export default function Card({ card, selected }) {
           onClick={removeCardFromResults}
         />
       )}
-      {!card.image_uris.normal && (
+      {!card.image_uris?.normal && (
         <>
           <p className="text-light d-inline card-name">{card.name}</p>
           <p className="oracle">{card.oracle_text}</p>
@@ -36,7 +37,7 @@ export default function Card({ card, selected }) {
           !!selected ? removeCardFromSelectedList : addCardToSelectedList
         }
         src={
-          !!card.image_uris.normal ? card.image_uris.normal : "./cardBack.jpg"
+          card.image_uris.normal //?? "./cardBack.jpg"
         }
         alt={card.name}
       />
